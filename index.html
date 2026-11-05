@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Exercise No 5</title>
+</head>
+
+<style>
+    :root {
+        --bgcolor: #071a2b;
+        --navcolor: rgba(8, 35, 55, 0.85);
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-muted: #b6c5d6;
+        --border-subtle: rgba(255, 255, 255, 0.18);
+        --accent-gold: #5eead4;
+        --purple: #818cf8;
+        --card-bg: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+
+    body {
+        background:
+            radial-gradient(ellipse at 10% 10%,
+                rgba(99, 102, 241, 0.35),
+                transparent 40%),
+            radial-gradient(ellipse at 90% 80%,
+                rgba(45, 212, 191, 0.25),
+                transparent 40%),
+            linear-gradient(135deg,
+                #071a2b,
+                #0b3045,
+                #10243e);
+
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        color: var(--text-primary);
+        overflow-x: hidden;
+    }
+
+
+    .logo img {
+        height: 100px;
+        filter: brightness(0) invert(1);
+    }
+
+    .logo {
+        transition: 0.5s ease;
+
+    }
+
+    .logo:hover {
+        transform: translateY(-8px) scaleX(1.1);
+    }
+
+    header {
+        background-color: var(--navcolor);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding-left: 50px;
+        padding-right: 50px;
+        position: sticky;
+        top: 0;
+
+    }
+
+
+    ul {
+        display: flex;
+        gap: 40px;
+    }
+
+    ul li {
+        list-style: none;
+    }
+
+    ul li a {
+        text-decoration: none;
+        color: var(--text-primary);
+        font-size: 24px;
+        transition: color 0.3s ease;
+
+    }
+
+    ul li a:hover {
+        color: var(--accent-gold);
+    }
+
+    .box1,
+    .box2 {
+        background: var(--card-bg);
+        color: var(--text-primary);
+        border: 1px solid var(--border-subtle);
+        border-radius: 18px;
+        padding: 25px;
+        flex: 1;
+        min-width: 0;
+        box-sizing: border-box;
+        font-size: 18px;
+        line-height: 1.8;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(12px);
+    }
+
+    main {
+        margin: 40px;
+        gap: 50px;
+        display: flex;
+        align-items: stretch;
+    }
+
+
+    .box1 h3 {
+        display: inline-block;
+    }
+
+    .b1,
+    .b2 {
+        display: inline-block;
+    }
+
+    .box1 h2,
+    .box1 h3,
+    .box2 h2 {
+        color: var(--text-primary);
+    }
+
+    .box1 p,
+    .box2 p {
+        color: var(--text-secondary);
+    }
+
+    .box2 article {
+        padding: 18px;
+        margin-bottom: 16px;
+        border: 1px solid var(--border-subtle);
+        border-radius: 14px;
+        background-color: rgba(255, 255, 255, 0.06);
+        transition: transform 0.3s ease,
+            background 0.3s ease,
+            border-color 0.3s ease;
+    }
+
+    .box2 article:hover {
+        transform: translateY(-4px);
+        background: rgba(129, 140, 248, 0.12);
+        border-color: var(--purple);
+    }
+
+    .box2 article h2 {
+        font-size: 21px;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .footer {
+        border-top: 1px solid var(--border-subtle);
+        padding: 60px 100px 40px 20px;
+        margin-top: 60px;
+        background: rgba(7, 26, 43, 0.45);
+    }
+
+    .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--text-primary);
+        font-size: 0.9rem;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 16px;
+    }
+
+    .social-links a {
+        color: var(--text-primary);
+        font-size: 1.4rem;
+        transition: 0.3s ease;
+    }
+
+    .social-links a:hover {
+        color: var(--accent-gold);
+        transform: translateY(-4px);
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .mylogo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: 0.5s ease;
+    object-fit: cover;
+}
+
+    .mylogo {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    box-shadow:
+        0 0 15px 5px var(--accent-gold),
+        inset 0 0 15px var(--accent-gold);
+}
+
+    .mylogo img {
+        transition: 0.5s ease;
+    }
+
+    .mylogo img:hover {
+        transform:scale(1.1);
+    }
+
+
+    /* For Tablet */
+    @media (max-width: 1024px) {
+        header {
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        ul {
+            gap: 25px;
+        }
+
+        ul li a {
+            font-size: 20px;
+        }
+
+        main {
+            margin: 25px;
+            gap: 25px;
+        }
+
+        .box1,
+        .box2 {
+            font-size: 16px;
+        }
+    }
+
+    /* For Mobile */
+    @media (max-width: 768px) {
+
+        main {
+            flex-direction: column;
+            margin: 15px;
+        }
+
+        .box1,
+        .box2 {
+            width: 100%;
+            font-size: 16px;
+        }
+
+        header {
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        ul {
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        ul li a {
+            font-size: 16px;
+        }
+
+        .footer-content {
+            flex-direction: column;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .mylogo img {
+            right: 20px;
+            bottom: 20px;
+        }
+        
+        .mylogo{
+            width: 70px;
+            height: 70px;
+            
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <a href="#" class="logo"><img src="Test Images/logo-removebg-preview.png" alt=""></a>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <!-- Box1 -->
+
+        <section class="box1">
+            <h2>Hi, I'm Abdullah,
+            </h2>
+            <p class="b1"> An aspiring</p>
+            <h3> Web Developer </h3>
+            <p class="b2">passionate about creating clean, modern, and user-friendly
+                websites.</p>
+
+            <p> I'm currently learning web development through CodeWithHarry's Sigma Web Development course. I enjoy
+                turning
+                creative ideas into real websites using HTML and CSS.</p>
+
+            <p>I believe in continuous learning, improving my skills, and building projects that help me grow as a
+                developer. My goal is to become a skilled web developer and create meaningful digital experiences.</p>
+        </section>
+
+        <!-- Box2 -->
+
+        <section class="box2">
+            <article>
+                <h2>
+                    HTML5
+                </h2>
+                <p>Building well-structured web pages using semantic HTML elements, forms, headings, links, and
+                    multimedia.</p>
+            </article>
+            <article>
+                <h2>CSS3</h2>
+                <p>Styling websites with colors, typography, spacing, backgrounds, borders, shadows, and attractive
+                    layouts.</p>
+            </article>
+            <article>
+                <h2>Responsive Web Design</h2>
+                <p>Learning to create layouts that adapt to different screen sizes, including mobile phones, tablets,
+                    and desktops.</p>
+            </article>
+            <article>
+                <h2>CSS Layouts</h2>
+                <p>Working with Flexbox, positioning, display properties, and CSS Grid to organize website content.
+                </p>
+            </article>
+            <article>
+                <h2>Git & GitHub</h2>
+                <p>Learning version control, managing repositories, tracking code changes, and sharing projects online.
+                </p>
+            </article>
+            <article>
+                <h2>JavaScript</h2>
+                <p>Planning to learn JavaScript to add interactive features and dynamic behavior to websites.</p>
+            </article>
+        </section>
+
+        <!-- My Logo -->
+
+        <section class="design">
+            <div class="mylogo">
+                <img src="Test Images/my logo.png" alt="My Logo">
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>© 2026 Abdullah Ansari. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/mabdullahansari5786-web" target="_blank"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/m-abdullah-ansari-4a7279448/" target="_blank"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
